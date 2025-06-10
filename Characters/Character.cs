@@ -132,7 +132,7 @@ public class Character : ICharacter, IEquatable<Character>
                     armorClass += Armor.ArmorClass + Math.Min(Dexterity, Armor?.DexterityCap ?? 0);
                 }
             }
-            return armorClass;
+            return armorClass + Dexterity;
         }
     }
     public int Speed

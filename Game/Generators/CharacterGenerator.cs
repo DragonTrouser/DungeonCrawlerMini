@@ -27,10 +27,10 @@ public static class CharacterGenerator
 
             Level = 1,
             Experience = 0,
-            Strength = 6,
+            Strength = 4,
             Dexterity = 3,
             Intelligence = 2,
-            Perception = 4,
+            Perception = 2,
 
             maxHealthBase = 20,
             maxHealthPerLevel = 10,
@@ -61,7 +61,7 @@ public static class CharacterGenerator
             Level = 1,
             Experience = random.Next(300),
 
-            Strength = 2,
+            Strength = 4,
             Dexterity = 2,
             Intelligence = 2,
             Perception = 2,
