@@ -1,5 +1,6 @@
 ﻿using Characters;
 using Game;
+using System.Numerics;
 using UI.WinForms.Forms.Combat;
 
 namespace UI.WinForms.Forms;
@@ -20,14 +21,22 @@ public partial class CombatForm : Form
         };
     }
 
+    private void UpdateHealthBars()
+    {
+        var player = _state.Player!;
+        ProgressBarEnemyHealth.Value = 100 * _enemy.Health / _enemy.MaxHealth;
+        ProgressBarPlayerHealth.Value = 100 * player.Health / player.MaxHealth;
+    }
+
     private void Reload()
     {
         var player = _state.Player!;
 
         TextBoxEnemyName.Text = _enemy.Name;
         TextBoxPlayerName.Text = player.Name;
-        ProgressBarEnemyHealth.Value = 100 * _enemy.Health / _enemy.MaxHealth;
-        ProgressBarPlayerHealth.Value = 100 * player.Health / player.MaxHealth;
+
+        UpdateHealthBars();
+
         TextBoxEnemyAC.Text = $"{_enemy.ArmorClass}";
         TextBoxPlayerAC.Text = $"{player.ArmorClass}";
 
@@ -61,6 +70,7 @@ public partial class CombatForm : Form
         form.FormClosed += delegate
         {
             Show();
+            UpdateHealthBars();
         };
         Hide();
     }
@@ -73,6 +83,7 @@ public partial class CombatForm : Form
         form.FormClosed += delegate
         {
             Show();
+            UpdateHealthBars();
         };
         Hide();
     }
