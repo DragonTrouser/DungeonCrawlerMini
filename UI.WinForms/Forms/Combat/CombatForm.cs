@@ -60,7 +60,6 @@ public partial class CombatForm : Form
         form.Show();
         form.FormClosed += delegate
         {
-            Reload();
             Show();
         };
         Hide();
@@ -73,7 +72,6 @@ public partial class CombatForm : Form
         form.Show();
         form.FormClosed += delegate
         {
-            Reload();
             Show();
         };
         Hide();
